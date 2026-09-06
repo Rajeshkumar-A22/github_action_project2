@@ -1,0 +1,26 @@
+name: Shell Script Workflow
+
+on:
+  push:
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Give Execute Permission
+        run: chmod +x scripts/deploy.sh
+
+      - name: Execute Shell Script
+        run: ./scripts/deploy.sh
+
+  job-2:
+    runs-on: ubuntu-latest
+    needs: job-1
+
+    steps:
+      - name: Final Step
+        run: echo "Job 2 executed after Job 1"
