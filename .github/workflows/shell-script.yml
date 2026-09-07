@@ -26,6 +26,6 @@ jobs:
         run: echo "Job 2 executed after Job 1"
 
       - name: Test Apache
-        run:
+        run: |
           sudo systemctl start apache2
           curl -I http://localhost 
