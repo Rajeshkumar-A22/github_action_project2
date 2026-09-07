@@ -28,4 +28,4 @@ jobs:
       - name: Test Apache
         run:
           sudo systemctl start apache2
-          curl -I http://localhost | grep "200 OK" || echo "Apache is not running"
+          curl -I http://localhost 
