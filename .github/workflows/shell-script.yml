@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Give Execute Permission
         run: chmod +x scripts/deploy.sh
@@ -24,6 +24,7 @@ jobs:
     steps:
       - name: Final Step
         run: echo "Job 2 executed after Job 1"
+
       - name: Test Apache
         run:
           sudo systemctl start apache2
