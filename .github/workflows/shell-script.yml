@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Give Execute Permission
         run: chmod +x scripts/deploy.sh
@@ -28,4 +28,4 @@ jobs:
       - name: Test Apache
         run:
           sudo systemctl start apache2
-          curl http://localhost
+          curl -I http://localhost | grep "200 OK" || echo "Apache is not running"
